@@ -24,5 +24,6 @@ var Image = Backbone.Model.extend({
 
 var Images = Backbone.Collection.extend({
 	model: Image
-
 });
+
+//comment
