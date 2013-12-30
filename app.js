@@ -1,14 +1,14 @@
-var ProductImage = Backbone.Model.extend({ 
+var Image = Backbone.Model.extend({ 
 	
 	readImage: function(file) {
 	var reader = new FileReader();
     
     
   // closure to capture the file information.
-  reader.onload = (function(theFile,model) {
+	reader.onload = (function(theFile,model) {
 		console.log('fname : ' + this.cid);
-    return function(e) {
-    	//set model
+    		return function(e) {
+    			//set model
 			model.set({filename: theFile.name, filedata: e.target.result});
 			model.save();
 			};
@@ -18,4 +18,11 @@ var ProductImage = Backbone.Model.extend({
     reader.readAsDataURL(file);
 		//return this;
     } 
+});
+
+
+
+var Images = Backbone.Collection.extend({
+	model: Image
+
 });
